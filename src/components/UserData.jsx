@@ -1,15 +1,16 @@
-const UserData = ({ users }) => {
+const UserData = ({ users,  onCardClick }) => {
     return (
         <>
             {users.length > 0 ? (
                 users.map((curUser) => {
                     const { id, from, date, subject, short_description } = curUser;
                     return (
-                        <div className='parent-body' key={id}>
+                        <div className='parent-body' key={id}  onClick={() => onCardClick(id)}
+                        >
                             <div className='left-head'>
                                 <div className='circle'>{from.name.charAt(0).toUpperCase()}</div>
                             </div>
-                            <div className="subject-body"> 
+                            <div className="subject-body" > 
                                 <p className="subject">From: {from.email}</p>
                                 <p className="subject">Subject: {subject}</p>
                                 <p className="short-description">{short_description}</p>
